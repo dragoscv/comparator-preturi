@@ -1,0 +1,15 @@
+# .github/workflows/scheduled-builds.yml
+name: Trigger Update of the database
+
+on:
+  schedule:
+    # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    - cron: '50 * * * *'
+jobs:
+  build:
+    name: Trigger Node file
+    runs-on: ubuntu-latest
+    steps:
+      - name: run node file
+        # Hit the webhook endpoint to rebuild  from the "main" branch
+        run: node ./github/index.js
