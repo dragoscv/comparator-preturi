@@ -1,5 +1,5 @@
 import { app } from '../firebase.config.js'
-import { getFirestore, addDoc, collection } from "firebase/database";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 const db = getFirestore(app);
 async function addToDb() {
     const docRef = await addDoc(collection(db, "videos"), {
