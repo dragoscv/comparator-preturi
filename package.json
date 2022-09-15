@@ -4,6 +4,7 @@
   "private": false,
   "license": "MIT",
   "description": "Comparator de preturi gratuit si fara afiliere pentru diverse site-uri romanesti",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,5 +1,5 @@
-const { app } = require('../firebase.config.js')
-const { getFirestore } = require("firebase/database")
+import { app } from '../firebase.config.js'
+import { getFirestore, addDoc, collection } from "firebase/database";
 const db = getFirestore(app);
 async function addToDb() {
     const docRef = await addDoc(collection(db, "videos"), {
