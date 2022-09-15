@@ -1,7 +1,9 @@
 {
   "name": "comparator-preturi",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "description": "Comparator de preturi gratuit si fara afiliere pentru diverse site-uri romanesti",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
