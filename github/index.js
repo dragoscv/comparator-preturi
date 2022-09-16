@@ -31,7 +31,7 @@ async function addToDb() {
             console.log(pageUrl)
             async function getData() {
                 try {
-                    const pageData = await fetch(pageUrl).then(res => res.json()).then(res => res)
+                    const pageData = await fetch(pageUrl).then(res => res.json()).then(res => res).catch(err => {console.log(err); getData(); return})
                     if (pageData.metadata.category_id) {
                         console.log(pageData.metadata)
                     }else {
