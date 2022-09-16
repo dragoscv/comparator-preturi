@@ -6,7 +6,7 @@ name: Trigger Update of the database
 on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
-    - cron: '* * * * *'
+    - cron: '55 * * * *'
   push:
     branches: [ "main" ]
 
