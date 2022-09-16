@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+
 async function addToDb() {
     const data = {
         name: "Tokyo",
@@ -20,7 +21,7 @@ async function addToDb() {
             url: `/${category.name}`,
         }
         const initialUrl = `https://www.emag.ro/search-by-url?source_id=${qData.source_id}&templates%5B%5D=${qData.templates}&listing_display_id=${qData.listing_display_id}&page%5Blimit%5D=${qData.page_limit}&url=${qData.url}/c`
-        console.log(initialUrl)
+        // console.log(initialUrl)
         const initial = await fetch(initialUrl).then(res => res.json()).then(res => res)
         const itemsCount = initial.data.pagination.items_count
         const pages = Math.ceil(itemsCount / qData.page_limit)
@@ -28,12 +29,15 @@ async function addToDb() {
             const page = i == 1 ? '' : `/p${i}`
             console.log(page)
             const pageUrl = `https://www.emag.ro/search-by-url?source_id=${qData.source_id}&templates%5B%5D=${qData.templates}&listing_display_id=${qData.listing_display_id}&page%5Blimit%5D=${qData.page_limit}&url=${qData.url}${page}/c`
-            console.log(pageUrl)
+            // console.log(pageUrl)
             async function getData() {
                 try {
-                    const pageData = await fetch(pageUrl).then(res => res.json()).then(res => res).catch(err => {console.log(err); getData(); return})
+                    const pageData = await fetch(pageUrl)
+                    .then(res => res.json())
+                    .then(res => res)
+                    // .catch(err => {console.log(err); getData(); return})
                     if (pageData.metadata.category_id) {
-                        console.log(pageData.metadata)
+                        // console.log(pageData.metadata)
                     }else {
                         getData()
                     }
@@ -44,8 +48,9 @@ async function addToDb() {
             }
             getData()
         }
-        console.log(pages)
-        console.log(itemsCount)
+        // console.log(pages)
+        // console.log(itemsCount)
     })
+// console.log(scanedPages)
 }
 addToDb()
