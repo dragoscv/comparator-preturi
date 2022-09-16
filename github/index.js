@@ -39,12 +39,12 @@ async function addToDb() {
                     if (pageData.metadata.category_id) {
                         console.log(pageData.metadata)
                     }else {
-                        getData()
+                        // getData()
                     }
                 } catch (e) {
                     console.log(pageUrl)
                     console.log("Something went wrong")
-                    getData()
+                    // getData()
                 }
             }
             getData()
