@@ -37,7 +37,9 @@ async function addToDb() {
                     .then(res => res)
                     // .catch(err => {console.log(err); getData(); return})
                     if (pageData.metadata.category_id) {
-                        console.log(pageData.metadata)
+                        const items = pageData.data.items
+                        console.log(items.length)
+                        // console.log(pageData.metadata)
                     }else {
                         // getData()
                     }
