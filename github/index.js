@@ -42,7 +42,8 @@ async function addToDb() {
                         getData()
                     }
                 } catch (e) {
-                    console.log(e)
+                    console.log(pageUrl)
+                    console.log("Something went wrong")
                     getData()
                 }
             }
